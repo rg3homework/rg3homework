@@ -1,7 +1,8 @@
 # rg3homework
 # 一、团队logo
+![f6fc20317ae972fef096ab506c566feb](https://github.com/user-attachments/assets/5c375ca1-c94b-4af2-816b-7485daeb8bec)
 
-<img src="E:/xwechat_files/wxid_vul39xnaei9422_c10a/temp/RWTemp/2026-03/e2472c8323b94f2838ed2adbdaa861ce/9828214cd7b5b6b59429585edb607951.jpg" alt="9828214cd7b5b6b59429585edb607951" style="zoom:33%;" />
+
 
 
 
