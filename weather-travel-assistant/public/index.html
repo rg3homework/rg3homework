@@ -1,0 +1,83 @@
+﻿<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>🌦️ 智能出行助手</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div class="container">
+    <header>
+      <h1>🌦️ 智能出行助手</h1>
+      <p>输入城市名称，获取天气信息与出行建议</p>
+    </header>
+
+    <div class="app">
+      <form class="search-form" id="searchForm">
+        <input 
+          type="text" 
+          id="cityInput"
+          placeholder="输入城市名称（如：北京、上海、杭州...）"
+          autocomplete="off"
+        />
+        <button type="submit" id="searchBtn">查询</button>
+      </form>
+
+      <div id="loading" class="loading" style="display: none;">
+        <div class="spinner"></div>
+        <p>加载中...</p>
+      </div>
+
+      <div id="error" class="error" style="display: none;"></div>
+
+      <div id="result" class="result" style="display: none;">
+        <h2 id="resultCity"></h2>
+
+        <section class="weather-card">
+          <div class="weather-main">
+            <div class="temp">
+              <span class="value" id="tempValue">--</span>
+              <span class="label">°C</span>
+            </div>
+            <div class="weather-info">
+              <p>体感温度: <span id="feelsLike">--</span>°C</p>
+              <p>湿度: <span id="humidity">--</span>%</p>
+              <p>风速: <span id="windSpeed">--</span> m/s</p>
+              <p>气压: <span id="pressure">--</span> hPa</p>
+              <p>天气: <span id="description">--</span></p>
+            </div>
+          </div>
+        </section>
+
+        <section class="advice-card">
+          <h3>📋 出行建议</h3>
+          <div class="advice-item">
+            <strong>👕 穿衣建议:</strong>
+            <p id="clothingAdvice"></p>
+          </div>
+          <div class="advice-item">
+            <strong>🚗 交通建议:</strong>
+            <p id="transportationAdvice"></p>
+          </div>
+          <div class="advice-item">
+            <strong>🏃 活动建议:</strong>
+            <p id="activityAdvice"></p>
+          </div>
+          <div id="warningsContainer" class="advice-item warnings" style="display: none;">
+            <strong>⚠️ 预警信息:</strong>
+            <ul id="warningsList"></ul>
+          </div>
+        </section>
+
+        <section class="plan-info">
+          <p>计划已保存: <span id="fileName"></span></p>
+          <p>保存时间: <span id="saveTime"></span></p>
+        </section>
+      </div>
+    </div>
+  </div>
+
+  <script src="app.js"></script>
+</body>
+</html>

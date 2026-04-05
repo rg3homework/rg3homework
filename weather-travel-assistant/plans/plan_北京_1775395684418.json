@@ -1,0 +1,19 @@
+{
+  "city": "北京",
+  "timestamp": "2026-04-05T13:28:04.417Z",
+  "weather": {
+    "temp": 12,
+    "feelsLike": 9,
+    "humidity": 10,
+    "windSpeed": 6.39,
+    "description": "Clear",
+    "details": "晴",
+    "pressure": 1011
+  },
+  "advice": {
+    "clothing": "穿长袖，可加薄外套",
+    "transportation": "有微风，骑行注意安全",
+    "activity": "适合户外活动，天气舒适",
+    "warnings": []
+  }
+}
