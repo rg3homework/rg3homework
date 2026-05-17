@@ -1,0 +1,34 @@
+<view class="container">
+  <!-- 总览卡片 -->
+  <view class="card overview-card">
+    <view class="overview-item">
+      <text class="label">本月已支出</text>
+      <text class="value">¥{{monthTotal}}</text>
+    </view>
+    <view class="overview-item">
+      <text class="label">待分摊金额</text>
+      <text class="value">¥{{toSplit}}</text>
+    </view>
+  </view>
+
+  <!-- 明细列表 -->
+  <view class="card">
+    <view class="card-title">账单明细</view>
+    <view wx:if="{{bills.length === 0}}" class="empty-tip">暂无账单记录</view>
+    <view wx:else class="bill-list">
+      <view wx:for="{{bills}}" wx:key="id" class="bill-item">
+        <view class="bill-info">
+          <text class="bill-name">{{item.name}}</text>
+          <text class="bill-date">{{item.date}}</text>
+        </view>
+        <text class="bill-amount">¥{{item.amount}}</text>
+      </view>
+    </view>
+  </view>
+
+  <!-- 操作按钮 -->
+  <view class="btn-group">
+    <button class="btn" bindtap="addBill">记一笔</button>
+    <button class="btn btn-white" bindtap="splitBill">发起分摊结算</button>
+  </view>
+</view>

@@ -1,0 +1,46 @@
+.calendar-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 20rpx;
+}
+.calendar-week, .calendar-days {
+  display: grid;
+  grid-template-columns: repeat(7, 1fr);
+  text-align: center;
+}
+.calendar-week text {
+  font-size: 24rpx;
+  color: #999;
+  margin-bottom: 10rpx;
+}
+.day-item {
+  position: relative;
+  padding: 15rpx 0;
+  font-size: 28rpx;
+}
+.day-item.active {
+  background: #4285F4;
+  color: #fff;
+  border-radius: 50%;
+}
+.dot {
+  position: absolute;
+  bottom: 5rpx;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 8rpx;
+  height: 8rpx;
+  background: #4285F4;
+  border-radius: 50%;
+}
+.schedule-item {
+  font-size: 26rpx;
+  color: #333;
+  padding: 15rpx 0;
+  border-bottom: 1rpx solid #eee;
+}
+.new-btn {
+  margin-top: 30rpx;
+  width: 100%;
+}

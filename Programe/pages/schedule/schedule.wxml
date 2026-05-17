@@ -1,0 +1,33 @@
+<view class="container">
+  <view class="card">
+    <!-- 简易日历（这里用月视图展示） -->
+    <view class="calendar-header">
+      <button bindtap="prevMonth">&lt;</button>
+      <text>{{currentYear}}年{{currentMonth}}月</text>
+      <button bindtap="nextMonth">&gt;</button>
+    </view>
+    <view class="calendar-grid">
+      <view class="calendar-week">
+        <text wx:for="{{weeks}}" wx:key="*this">{{item}}</text>
+      </view>
+      <view class="calendar-days">
+        <view wx:for="{{days}}" wx:key="date" class="day-item {{item.isToday ? 'active' : ''}}" bindtap="selectDay" data-date="{{item.date}}">
+          <text>{{item.day}}</text>
+          <view wx:if="{{item.hasSchedule}}" class="dot"></view>
+        </view>
+      </view>
+    </view>
+  </view>
+
+  <!-- 日程列表 -->
+  <view class="schedule-list">
+    <view class="card-title">{{selectedDate}} 的日程安排</view>
+    <view wx:if="{{selectedSchedules.length === 0}}" class="empty-tip">无日程安排</view>
+    <view wx:else>
+      <view wx:for="{{selectedSchedules}}" wx:key="id" class="schedule-item">
+        <text>{{item.type}}：{{item.content}}</text>
+      </view>
+    </view>
+    <button class="btn btn-white new-btn" bindtap="goToAddSchedule">新建日程</button>
+  </view>
+</view>

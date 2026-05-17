@@ -1,0 +1,62 @@
+<view class="container">
+  <!-- 1. 问候&天气 -->
+  <view class="greeting">
+    <text class="greet-text">{{greetText}}！</text>
+    <text class="weather-text">今天是{{weatherData.text}}的一天</text>
+  </view>
+
+  <!-- 2. 状态卡片区 -->
+  <view class="status-cards">
+    <view class="card status-card">
+      <view class="status-item">
+        <text class="label">今日温度</text>
+        <text class="value">{{weatherData.temp}}℃</text>
+      </view>
+      <view class="status-item">
+        <text class="label">今日天气</text>
+        <text class="value">{{weatherData.text}}</text>
+      </view>
+      <view class="status-item">
+        <text class="label">今日值日</text>
+        <text class="value">{{todayDuty || '无安排'}}</text>
+      </view>
+    </view>
+  </view>
+
+  <!-- 3. 功能快捷入口（4列） -->
+  <view class="func-cards">
+    <view class="card func-card">
+      <view class="func-grid">
+        <view class="func-item" bindtap="goToWeather">
+          <image src="/images/weather.png"></image>
+          <text>天气提醒</text>
+        </view>
+        <view class="func-item" bindtap="showLateRemind">
+          <image src="/images/late.png"></image>
+          <text>晚归提醒</text>
+        </view>
+        <view class="func-item" bindtap="goToRule">
+          <image src="/images/rule.png"></image>
+          <text>寝室公约</text>
+        </view>
+        <view class="func-item" bindtap="goToAiHelp">
+          <image src="/images/ai.png"></image>
+          <text>矛盾调解</text>
+        </view>
+      </view>
+    </view>
+  </view>
+
+  <!-- 4. 今日提醒区 -->
+  <view class="remind-area">
+    <view class="card remind-card">
+      <view class="card-title">今日提醒</view>
+      <view wx:if="{{todayReminds.length === 0}}" class="empty-tip">暂无待办事项~</view>
+      <view wx:else class="remind-list">
+        <view wx:for="{{todayReminds}}" wx:key="id" class="remind-item">
+          <text>{{item.content}}</text>
+        </view>
+      </view>
+    </view>
+  </view>
+</view>

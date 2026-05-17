@@ -1,0 +1,65 @@
+.greeting {
+  margin-bottom: 30rpx;
+}
+.greet-text {
+  display: block;
+  font-size: 40rpx;
+  font-weight: bold;
+}
+.weather-text {
+  font-size: 28rpx;
+  color: #666;
+  margin-top: 10rpx;
+}
+.status-card {
+  display: flex;
+  justify-content: space-between;
+}
+.status-item {
+  text-align: center;
+}
+.status-item .label {
+  display: block;
+  font-size: 24rpx;
+  color: #999;
+}
+.status-item .value {
+  display: block;
+  font-size: 32rpx;
+  font-weight: bold;
+  margin-top: 10rpx;
+}
+.func-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 20rpx;
+}
+.func-item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.func-item image {
+  width: 60rpx;
+  height: 60rpx;
+  margin-bottom: 10rpx;
+}
+.func-item text {
+  font-size: 24rpx;
+}
+.card-title {
+  font-size: 30rpx;
+  font-weight: bold;
+  margin-bottom: 20rpx;
+}
+.remind-item {
+  font-size: 26rpx;
+  color: #333;
+  margin-bottom: 10rpx;
+}
+.empty-tip {
+  font-size: 26rpx;
+  color: #999;
+  text-align: center;
+  padding: 20rpx 0;
+}
