@@ -1,0 +1,25 @@
+<view class="container login-page">
+  <!-- 居中图标+标题 -->
+  <view class="logo">
+    <image src="/images/logo.png" mode="aspectFit" class="logo-img"></image>
+    <text class="title">寝室管家Agent</text>
+  </view>
+
+  <!-- 勾选协议 -->
+  <view class="checkbox-wrap">
+    <checkbox class="checkbox" checked="{{agreed}}" bindtap="toggleAgree"></checkbox>
+    <text class="tips-text">我已阅读并同意《用户协议》和《隐私政策》</text>
+  </view>
+
+  <!-- 微信一键登录（未勾选时按钮置灰不可点击） -->
+  <view class="login-btn-wrap">
+    <button 
+      class="btn login-btn {{agreed ? '' : 'disabled'}}" 
+      open-type="getUserInfo" 
+      bindgetuserinfo="handleGetUserInfo"
+      disabled="{{!agreed}}"
+    >
+      微信一键登录
+    </button>
+  </view>
+</view>

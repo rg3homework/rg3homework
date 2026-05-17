@@ -1,0 +1,22 @@
+<view class="container">
+  <view class="card">
+    <view class="card-title">账单分摊记录</view>
+    <!-- 无记录：居中显示 -->
+    <view 
+      wx:if="{{myBillRecords.length === 0}}" 
+      class="empty-box"
+    >
+      <text class="empty-tip">暂无账单分摊记录</text>
+    </view>
+    <!-- 有记录：列表显示 -->
+    <view wx:else class="content-box">
+      <view wx:for="{{myBillRecords}}" wx:key="id" class="record-item">
+        <view class="record-info">
+          <text class="record-name">{{item.name}}</text>
+          <text class="record-date">{{item.date}}</text>
+        </view>
+        <text class="record-amount">¥{{item.amount}}</text>
+      </view>
+    </view>
+  </view>
+</view>

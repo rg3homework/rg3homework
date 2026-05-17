@@ -1,0 +1,79 @@
+.overview-card {
+  display: flex;
+  justify-content: space-between;
+}
+.overview-item {
+  text-align: center;
+}
+.overview-item .label {
+  display: block;
+  font-size: 24rpx;
+  color: #999;
+}
+.overview-item .value {
+  display: block;
+  font-size: 36rpx;
+  font-weight: bold;
+  margin-top: 10rpx;
+}
+
+.card-title {
+  font-size: 30rpx;
+  font-weight: bold;
+  margin-bottom: 20rpx;
+}
+
+/* 无账单：居中框 */
+.bill-empty-box {
+  background: #f9f9f9;
+  border-radius: 12rpx;
+  padding: 60rpx 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.empty-tip {
+  font-size: 26rpx;
+  color: #999;
+}
+
+/* 有账单：居左列表框 */
+.bill-content-box {
+  background: #f9f9f9;
+  border-radius: 12rpx;
+  padding: 20rpx;
+}
+.bill-item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 20rpx 0;
+  border-bottom: 1rpx solid #eee;
+}
+.bill-item:last-child {
+  border-bottom: none;
+}
+.bill-info .bill-name {
+  display: block;
+  font-size: 28rpx;
+}
+.bill-info .bill-date {
+  display: block;
+  font-size: 24rpx;
+  color: #999;
+  margin-top: 5rpx;
+}
+.bill-amount {
+  font-size: 30rpx;
+  font-weight: bold;
+  color: #ff4d4f;
+}
+
+.btn-group {
+  display: flex;
+  gap: 20rpx;
+  margin-top: 30rpx;
+}
+.btn-group button {
+  flex: 1;
+}

@@ -1,0 +1,18 @@
+<view class="container">
+  <view class="card">
+    <view class="card-title">我的值日记录</view>
+    <!-- 无记录：居中显示 -->
+    <view 
+      wx:if="{{myDutyRecords.length === 0}}" 
+      class="empty-box"
+    >
+      <text class="empty-tip">暂无值日记录</text>
+    </view>
+    <!-- 有记录：列表显示 -->
+    <view wx:else class="content-box">
+      <view wx:for="{{myDutyRecords}}" wx:key="id" class="record-item">
+        <text>{{item.date}}：{{item.content}}</text>
+      </view>
+    </view>
+  </view>
+</view>

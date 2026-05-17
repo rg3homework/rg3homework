@@ -1,0 +1,28 @@
+<view class="container">
+  <view class="user-info card">
+    <image src="{{userInfo.avatarUrl || '/images/default-avatar.png'}}" class="avatar"></image>
+    <view class="info">
+      <text class="nickname">{{userInfo.nickName || '未登录'}}</text>
+      <text class="dorm">宿舍：{{dormInfo || '未设置'}}</text>
+    </view>
+  </view>
+
+  <view class="menu-list">
+    <view class="card menu-item" bindtap="setDorm">
+      <text>设置宿舍信息</text>
+      <text class="arrow">></text>
+    </view>
+    <view class="card menu-item" bindtap="goToMyDuty">
+      <text>我的值日记录</text>
+      <text class="arrow">></text>
+    </view>
+    <view class="card menu-item" bindtap="goToMyBill">
+      <text>账单分摊记录</text>
+      <text class="arrow">></text>
+    </view>
+    <view class="card menu-item" bindtap="logout">
+      <text class="logout-text">退出登录</text>
+      <text class="arrow">></text>
+    </view>
+  </view>
+</view>

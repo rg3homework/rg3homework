@@ -1,0 +1,29 @@
+<view class="container">
+  <view class="card">
+    <view class="card-title">寝室公约</view>
+
+    <!-- 无公约：居中显示 -->
+    <view 
+      wx:if="{{rules.length === 0}}" 
+      class="rule-empty-box"
+    >
+      <text class="empty-tip">暂无寝室公约</text>
+    </view>
+
+    <!-- 有公约：列表显示，每条带时间+用户名 -->
+    <view wx:else class="rule-content-box">
+      <view wx:for="{{rules}}" wx:key="id" class="rule-item">
+        <view class="rule-header">
+          <text class="rule-time">{{item.time}}</text>
+          <text class="rule-author">{{item.author}}</text>
+        </view>
+        <text class="rule-content">{{item.content}}</text>
+        <view class="rule-delete" bindtap="deleteRule" data-id="{{item.id}}">
+          <text>删除公约</text>
+        </view>
+      </view>
+    </view>
+
+    <button class="btn btn-white new-btn" bindtap="addRule">新建寝室公约</button>
+  </view>
+</view>

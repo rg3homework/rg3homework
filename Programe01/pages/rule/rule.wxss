@@ -1,0 +1,66 @@
+.card-title {
+  font-size: 30rpx;
+  font-weight: bold;
+  margin-bottom: 20rpx;
+}
+
+/* 无公约：居中框 */
+.rule-empty-box {
+  background: #f9f9f9;
+  border-radius: 12rpx;
+  padding: 60rpx 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.empty-tip {
+  font-size: 26rpx;
+  color: #999;
+}
+
+/* 有公约：列表框 */
+.rule-content-box {
+  background: #f9f9f9;
+  border-radius: 12rpx;
+  padding: 20rpx;
+}
+.rule-item {
+  background: #fff;
+  border-radius: 8rpx;
+  padding: 20rpx;
+  margin-bottom: 15rpx;
+}
+.rule-item:last-child {
+  margin-bottom: 0;
+}
+.rule-header {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 10rpx;
+}
+.rule-time {
+  font-size: 22rpx;
+  color: #999;
+}
+.rule-author {
+  font-size: 22rpx;
+  color: #4285F4;
+}
+.rule-content {
+  font-size: 26rpx;
+  color: #333;
+  line-height: 1.5;
+}
+.rule-delete {
+  margin-top: 15rpx;
+  text-align: right;
+}
+.rule-delete text {
+  font-size: 24rpx;
+  color: #ff4d4f;
+}
+
+.new-btn, .back-btn {
+  margin-top: 30rpx;
+  width: 100%;
+}
