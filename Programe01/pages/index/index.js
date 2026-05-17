@@ -2,17 +2,20 @@ Page({
   data: {
     greetText: '',
     weatherData: {
-      temp: 22,
-      text: '晴朗'
+      temp: '',
+      text: ''
     },
     todayDuty: '',
     todayReminds: []
   },
 
   onLoad() {
+
     this.setGreetText()
     this.loadTodayDuty()
     this.loadTodayReminds()
+    this.getWeather()
+  
   },
 
   // 根据时间生成问候语
@@ -24,6 +27,25 @@ Page({
     else if (hour < 18) text = '下午好'
     else text = '晚上好'
     this.setData({ greetText: text })
+  },
+
+
+  getWeatherTip(temp, text) {
+
+    let tip = ''
+  
+    if (text.includes('雨')) {
+      tip = '今天有雨，记得带伞 ☔'
+    } else if (temp >= 30) {
+      tip = '天气较热，注意防暑 🥵'
+    } else if (temp <= 10) {
+      tip = '天气较冷，注意保暖 🧥'
+    } else {
+      tip = '天气舒适，适合外出 🌤️'
+    }
+  
+    return tip
+  
   },
 
   // 加载今日值日（从日程页读取数据）
@@ -42,9 +64,106 @@ Page({
     this.setData({ todayReminds: reminds })
   },
 
+  //加载今日天气
+  getWeather() {
+
+    wx.request({
+  
+      url: 'http://192.168.200.96:3000/weather',
+  
+      method: 'GET',
+  
+      success: (res) => {
+
+        console.log('🔥天气原始返回：', res.data)
+      
+        this.setData({
+      
+          weatherData: {
+            temp: res.data.temp,
+            text: res.data.text,
+            tip: this.getWeatherTip(res.data.temp, res.data.text)
+          }
+      
+        })
+      
+        console.log('🔥setData后：', this.data.weatherData)
+      
+      },
+  
+      fail: (err) => {
+  
+        console.log('天气请求失败', err)
+  
+      }
+  
+    })
+  
+  },
+
   // 跳转到天气页
   goToWeather() {
-    wx.navigateTo({ url: '/pages/weather/weather' })
+
+    wx.request({
+  
+      url: 'http://192.168.200.96:3000/weather',
+  
+      method: 'GET',
+  
+      success: (res) => {
+  
+        const temp = res.data.temp
+        const text = res.data.text
+  
+        let advice = []
+  
+        // 🌧️ 天气判断
+        if (text.includes('雨')) {
+          advice.push('☔ 今天有雨，记得带伞')
+          advice.push('🚶 减少外出，注意安全')
+        } 
+        else if (text.includes('晴')) {
+          advice.push('🌤️ 天气晴朗，适合上课/外出')
+          advice.push('🧺 适合洗衣服、晒被子')
+        }
+        else if (text.includes('多云')) {
+          advice.push('⛅ 天气舒适，适合学习')
+        }
+  
+        // 🌡️ 温度判断
+        if (temp >= 30) {
+          advice.push('🥵 高温天气，注意防暑')
+          advice.push('💧 多喝水，避免剧烈运动')
+        } 
+        else if (temp <= 10) {
+          advice.push('🧥 天气较冷，注意保暖')
+        }
+  
+        // 🌙 时间建议
+        const hour = new Date().getHours()
+        if (hour >= 22) {
+          advice.push('🌙 已经较晚，建议早点休息')
+        }
+  
+        wx.showModal({
+          title: 'AI天气·宿舍建议',
+          content: `当前：${text} ${temp}℃\n\n${advice.join('\n')}`,
+          showCancel: false
+        })
+  
+      },
+  
+      fail: () => {
+  
+        wx.showToast({
+          title: '天气获取失败',
+          icon: 'none'
+        })
+  
+      }
+  
+    })
+  
   },
 
   // 晚归提醒：工作日22:30后才会弹出

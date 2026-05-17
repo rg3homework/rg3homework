@@ -1,66 +1,84 @@
-// pages/ai-help/ai-help.js
 Page({
 
-  /**
-   * 页面的初始数据
-   */
   data: {
 
-  },
+    inputValue: '',
 
-  /**
-   * 生命周期函数--监听页面加载
-   */
-  onLoad(options) {
+    reply: ''
 
   },
 
-  /**
-   * 生命周期函数--监听页面初次渲染完成
-   */
-  onReady() {
+
+  // 输入监听
+  onInput(e) {
+
+    this.setData({
+
+      inputValue: e.detail.value
+
+    })
 
   },
 
-  /**
-   * 生命周期函数--监听页面显示
-   */
-  onShow() {
 
-  },
+  // 发送消息
+  sendMessage() {
 
-  /**
-   * 生命周期函数--监听页面隐藏
-   */
-  onHide() {
+    if (!this.data.inputValue) {
 
-  },
+      wx.showToast({
 
-  /**
-   * 生命周期函数--监听页面卸载
-   */
-  onUnload() {
+        title: '请输入内容',
 
-  },
+        icon: 'none'
 
-  /**
-   * 页面相关事件处理函数--监听用户下拉动作
-   */
-  onPullDownRefresh() {
+      })
 
-  },
+      return
 
-  /**
-   * 页面上拉触底事件的处理函数
-   */
-  onReachBottom() {
+    }
 
-  },
+    wx.request({
 
-  /**
-   * 用户点击右上角分享
-   */
-  onShareAppMessage() {
+      // 改成你的电脑IP
+      url: 'http://192.168.200.96:3000/chat',
+
+      method: 'POST',
+
+      data: {
+
+        message: this.data.inputValue
+
+      },
+
+      success: (res) => {
+
+        console.log(res.data)
+
+        this.setData({
+
+          reply: res.data.reply
+
+        })
+
+      },
+
+      fail: (err) => {
+
+        console.log(err)
+
+        wx.showToast({
+
+          title: '请求失败',
+
+          icon: 'none'
+
+        })
+
+      }
+
+    })
 
   }
+
 })

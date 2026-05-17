@@ -1,2 +1,47 @@
-<!--pages/ai-help/ai-help.wxml-->
-<text>pages/ai-help/ai-help.wxml</text>
+<!-- AI宿舍助手页面 -->
+
+<view class="container">
+
+<!-- 标题 -->
+<view class="title">
+
+  AI宿舍调解助手
+
+</view>
+
+<!-- 输入框 -->
+<input
+  class="input"
+  placeholder="请输入你的问题..."
+  bindinput="onInput"
+/>
+
+<!-- 按钮 -->
+<button
+  class="btn"
+  bindtap="sendMessage"
+>
+  发送
+</button>
+
+<!-- AI回复 -->
+<view
+  wx:if="{{reply}}"
+  class="reply-box"
+>
+
+  <view class="reply-title">
+
+    AI回复
+
+  </view>
+
+  <view class="reply-content">
+
+    {{reply}}
+
+  </view>
+
+</view>
+
+</view>

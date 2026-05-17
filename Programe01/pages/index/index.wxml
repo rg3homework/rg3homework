@@ -4,6 +4,9 @@
     <text class="greet-text">{{greetText}}！</text>
     <text class="weather-text">今天是{{weatherData.text}}的一天</text>
   </view>
+  <text class="weather-tip">
+  {{weatherData.tip}}
+</text>
 
   <!-- 2. 状态卡片区（加上图标） -->
   <view class="status-cards">

@@ -101,3 +101,8 @@
 .remind-item:last-child {
   border-bottom: none;
 }
+.weather-tip {
+  margin-top: 10rpx;
+  font-size: 26rpx;
+  color: #666;
+}
