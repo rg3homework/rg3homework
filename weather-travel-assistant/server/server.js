@@ -4,6 +4,9 @@ const fs = require('fs').promises;
 const path = require('path');
 const cors = require('cors');
 require('dotenv').config();
+console.log('✅ 环境变量已加载');
+console.log('API_KEY 长度:', process.env.WEATHER_API_KEY ? process.env.WEATHER_API_KEY.length : '未设置');
+console.log('API_KEY 前 5 个字符:', process.env.WEATHER_API_KEY ? process.env.WEATHER_API_KEY.substring(0, 5) : '未设置');
 
 const app = express();
 app.use(cors());
@@ -210,9 +213,6 @@ app.get('/api/health', (req, res) => {
 });
 
 const PORT = process.env.PORT || 3000;
-app.listen(PORT, () => {
-  console.log(`\n✅ 服务器运行在 http://localhost:${PORT}`);
-  console.log(`📍 健康检查: http://localhost:${PORT}/api/health`);
-  console.log(`🌐 前端地址: http://localhost:${PORT}`);
-  console.log(`\n支持的城市: ${Object.keys(cityDatabase).join('、')}\n`);
+app.listen(PORT, HOST, () => {
+  console.log(`✅ 服务器运行在 http://${HOST}:${PORT}`);
 });
